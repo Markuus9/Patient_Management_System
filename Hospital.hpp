@@ -18,5 +18,8 @@ class Hospital {
         list<string> LlistaEspera;
     public:
 
+    void alta_pacient(string nom, int edat, string motiu, int gravetat){
+
+    }
 };
 #endif
