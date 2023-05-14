@@ -17,9 +17,18 @@ class Hospital {
         BST<Doctor> Doctors;
         list<string> LlistaEspera;
     public:
+        void alta_pacient(string nom, int edat, string motiu, int gravetat){
+            Pacient P(nom,edat,motiu,gravetat);
+            bool repetit;
+            
+            if(Pacients.find(P)){
 
-    void alta_pacient(string nom, int edat, string motiu, int gravetat){
+            }
+            Pacients.insert(P);
+        }
 
-    }
+        void baixa_pacient(string nom){
+
+        }
 };
 #endif

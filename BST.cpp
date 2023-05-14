@@ -109,7 +109,17 @@ void BST<T>::setValue(const T& d, const T& value) {
 
 template <typename T>
 pair<bool, T> BST<T>::find(const T& d) const { 
-	
-	// PROGRAM THIS METHOD
-	
+	bool veredict = false;
+	T result;
+	if(root==NULL){
+		veredict = false;
+	} else {
+		if(d==root->data){
+			veredict = true;
+			result = root->data;
+		} else {
+			veredict, result = root->left
+		}
+	}
+	return veredict, result;
 }
