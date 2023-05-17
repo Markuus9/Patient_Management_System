@@ -19,7 +19,7 @@ typename BST<T>::Item* BST<T>::insert(Item *node, const T& d) {
 		node->left = insert(node->left, d);
 	} else {
 		node->right = insert(node->right, d);
-	} 
+	}
 	return node;
 }
 
@@ -78,8 +78,8 @@ BST<T>::BST() {
 //-------------
 
 template <typename T>
-BST<T>::~BST() { 
-	clear(root); 
+BST<T>::~BST() {
+	clear(root);
 }
 
 
@@ -88,18 +88,18 @@ BST<T>::~BST() {
 //-------------
 
 template <typename T>
-void BST<T>::insert(const T& d) { 
-	root = insert(root, d); 
+void BST<T>::insert(const T& d) {
+	root = insert(root, d);
 }
 
 template <typename T>
-void BST<T>::remove(const T& d) { 
-	root = remove(root, d); 
+void BST<T>::remove(const T& d) {
+	root = remove(root, d);
 }
 
 template <typename T>
-void BST<T>::setValue(const T& d, const T& value) { 
-	setValue(root, d, value); 
+void BST<T>::setValue(const T& d, const T& value) {
+	setValue(root, d, value);
 }
 
 
@@ -108,18 +108,18 @@ void BST<T>::setValue(const T& d, const T& value) {
 //-----------
 
 template <typename T>
-pair<bool, T> BST<T>::find(const T& d) const { 
-	bool veredict = false;
-	T result;
-	if(root==NULL){
-		veredict = false;
-	} else {
-		if(d==root->data){
-			veredict = true;
-			result = root->data;
-		} else {
-			veredict, result = root->left
-		}
-	}
-	return veredict, result;
+
+pair<bool, T> BST<T>::find(const T& d, Item* pitem) const
+{
+	if (pitem == NULL) return make_pair(false, NULL);
+	if (pitem->data == d) return make_pair(true, pitem->data);
+	if (pitem->left != NULL and pitem->data > d) return find(d, pitem->left);
+	if (pitem->right != NULL and pitem->data < d) return find(d, pitem->right);
+	return make_pair(false, NULL);
+}
+
+template <typename T>
+
+pair<bool, T> BST<T>::find(const T& d) const {
+	return find(d, root);
 }

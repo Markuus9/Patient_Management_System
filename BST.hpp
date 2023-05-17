@@ -60,6 +60,8 @@ private:
 	   segon valor rebut per paràmetre (newData), de
        la jerarquia de nodes apuntada per item */
 	void setValue(Item *node, const T& d, const T& newData);
+
+	pair<bool, T> find(const T& d, Item* pitem) const;
 	
 
 public:
