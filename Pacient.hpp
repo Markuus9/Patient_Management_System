@@ -93,6 +93,13 @@ class Pacient {
 		/* Pre: cert */
 		/* Post: s'han escrit els atributs nom, edat, motiu i gravetat del
            pacient 'p' al canal estàndard de sortida */
-		friend ostream& operator<<(ostream &os, const Pacient &p); 
+		friend ostream& operator<<(ostream &os, const Pacient &p);
+
+		bool operator<(const Pacient &p) const;
+
+		bool operator>(const Pacient &p) const;
+
+		bool operator==(const Pacient &p) const;
+
 };
 #endif

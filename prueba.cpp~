@@ -15,6 +15,6 @@ int main()
   int y;
   cin >> y;
   pair<bool,int> par = test.find(y);
-  cout << par.first << " " << par.second << endl;c
+  cout << par.first << " " << par.second << endl;
 
 }

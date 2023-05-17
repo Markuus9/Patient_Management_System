@@ -66,9 +66,24 @@ bool Pacient::compare(const Pacient &p) const{
 //-----------
 			
 istream& operator>>(istream &is, Pacient &p){
-
+	is >> p.nom  >> p.edat >> p.motiu >> p.gravetat;
+	return is;
 }
 
 ostream& operator<<(ostream &os, const Pacient &p){
-
+	os << p.nom << " " << p.edat << " " << p.motiu << " " << p.gravetat << endl;
+	return os;
 }
+
+bool Pacient::operator<(const Pacient &p) const {
+	return nom < p.nom;
+}
+
+bool Pacient::operator>(const Pacient &p) const {
+	return nom > p.nom;
+}
+
+bool Pacient::operator==(const Pacient &p) const {
+	return nom == p.nom;
+}
+
