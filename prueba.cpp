@@ -23,8 +23,4 @@ int main()
     test.setValue(name, p);
     cout << test.find(name).second;
   }
-  
-  cout << test.find(Pacient("papa")).second;
-  cout << test.find(Pacient("mama")).second;
-  cout << test.find(Pacient("mary")).second;
 }
