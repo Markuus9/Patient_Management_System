@@ -61,8 +61,7 @@ private:
        la jerarquia de nodes apuntada per item */
 	void setValue(Item *node, const T& d, const T& newData);
 
-	pair<bool, T> find(const T& d, Item* pitem) const;
-	
+	Item* find(Item* pitem, const T& d) const;	
 
 public:
 

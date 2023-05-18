@@ -109,17 +109,19 @@ void BST<T>::setValue(const T& d, const T& value) {
 
 template <typename T>
 
-pair<bool, T> BST<T>::find(const T& d, Item* pitem) const
+typename BST<T>::Item* BST<T>::find(Item* pitem, const T& d) const
 {
-	if (pitem == NULL) return make_pair(false, pitem->data);
-	if (pitem->data == d) return make_pair(true, pitem->data);
-	if (pitem->left != NULL and pitem->data > d) return find(d, pitem->left);
-	if (pitem->right != NULL and pitem->data < d) return find(d, pitem->right);
-	return make_pair(false, pitem->data);
+	if (pitem == NULL) return NULL;
+	if (pitem->data == d) return pitem;
+	if (pitem->left != NULL and pitem->data > d) return find(pitem->left, d);
+	if (pitem->right != NULL and pitem->data < d) return find(pitem->right, d);
+	return NULL;
 }
 
 template <typename T>
 
 pair<bool, T> BST<T>::find(const T& d) const {
-	return find(d, root);
+	Item* pitem = find(root, d);
+	if (pitem == NULL) return make_pair(false, pitem->data);
+	return make_pair(true, pitem->data);
 }
