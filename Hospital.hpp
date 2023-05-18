@@ -21,7 +21,7 @@ class Hospital {
             Pacient P(nom,edat,motiu,gravetat);
             bool repetit;
             
-            if(Pacients.find(P)){
+            if(Pacients.find(P).first){
 
             }
             Pacients.insert(P);

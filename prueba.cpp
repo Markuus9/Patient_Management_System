@@ -13,12 +13,18 @@ int main()
     cin >> x;
     test.insert(x);
   }
-    int q;
-    cin >> q;
-    Pacient p("papa");
-    Pacient p1("papa",51,"pierna",3);
-    test.setValue(p, p1);
-string y = "papa";
-  pair<bool,Pacient> par = test.find(y);
-  cout << par.first << " " << par.second << endl;
+  string name;
+  while (cin >> name) {
+    int edat, gravetat;
+    string motiu;
+    cin >> edat >> motiu >> gravetat;
+    Pacient p(name, edat, motiu, gravetat);
+    Pacient e(name);
+    test.setValue(name, p);
+    cout << test.find(name).second;
+  }
+  
+  cout << test.find(Pacient("papa")).second;
+  cout << test.find(Pacient("mama")).second;
+  cout << test.find(Pacient("mary")).second;
 }
