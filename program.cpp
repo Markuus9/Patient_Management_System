@@ -19,18 +19,22 @@ int main() {
     string inst;
     while ((cin >> inst) and (inst != "fi")) {
         if (inst == "alta_pacient") {
-            
-			// completar el codi
-
+          Pacient p;
+          cin >> p;
+          h.alta_pacient(p);
         } else if (inst == "baixa_pacient") {
-            
+          string name;
+          cin >> name;
+          h.baixa_pacient(name);
 			// completar el codi
 
         } else if (inst == "alta_doctor") {
             
 			// completar el codi
 
-        } 
+        } else if (inst == "mostrar_llista") {
+          h.mostar_llista();
+        }
 		// ...
 		// completar el codi
 		// ...

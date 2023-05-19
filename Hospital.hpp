@@ -15,20 +15,12 @@ class Hospital {
     private:
         BST<Pacient> Pacients;
         BST<Doctor> Doctors;
-        list<string> LlistaEspera;
+        Queue<Pacient> LlistaEspera;
     public:
-        void alta_pacient(string nom, int edat, string motiu, int gravetat){
-            Pacient P(nom,edat,motiu,gravetat);
-            bool repetit;
-            
-            if(Pacients.find(P).first){
+        void alta_pacient(const Pacient &);
 
-            }
-            Pacients.insert(P);
-        }
+        void baixa_pacient(string nom);
 
-        void baixa_pacient(string nom){
-
-        }
+        void mostar_llista();
 };
 #endif

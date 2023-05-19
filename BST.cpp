@@ -122,6 +122,6 @@ template <typename T>
 
 pair<bool, T> BST<T>::find(const T& d) const {
 	Item* pitem = find(root, d);
-	if (pitem == NULL) return make_pair(false, pitem->data);
+	if (pitem == NULL) return make_pair(false, d);
 	return make_pair(true, pitem->data);
 }
