@@ -19,13 +19,9 @@ int main() {
     string inst;
     while ((cin >> inst) and (inst != "fi")) {
         if (inst == "alta_pacient") {
-          Pacient p;
-          cin >> p;
-          h.alta_pacient(p);
+          h.alta_pacient();
         } else if (inst == "baixa_pacient") {
-          string name;
-          cin >> name;
-          h.baixa_pacient(name);
+          h.baixa_pacient();
 			// completar el codi
 
         } else if (inst == "alta_doctor") {

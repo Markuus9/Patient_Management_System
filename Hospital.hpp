@@ -17,9 +17,9 @@ class Hospital {
         BST<Doctor> Doctors;
         Queue<Pacient> LlistaEspera;
     public:
-        void alta_pacient(const Pacient &);
+        void alta_pacient();
 
-        void baixa_pacient(string nom);
+        void baixa_pacient();
 
         void mostar_llista();
 };
