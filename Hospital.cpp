@@ -6,7 +6,7 @@ void Hospital::alta_pacient(){
     if(not Pacients.find(P).first) {
         Pacients.insert(P);
         LlistaEspera.push(P);
-    } else cerr << "  Error: Pacient ja existent" << endl;
+    } else cerr << "  Error" << endl;
 }
 
 
@@ -14,8 +14,12 @@ void Hospital::baixa_pacient(){
     string nom;
     cin >> nom;
     Pacient P(nom);
-    if(Pacients.find(P).first) Pacients.remove(P);
-    else cerr << " Error: Pacient no existent" << endl;
+    pair<bool,Pacient> par = Pacients.find(P);
+    if(par.first) {
+        Pacients.remove(par.second);
+        LlistaEspera.remove(par.second);
+    }
+    else cerr << " Error" << endl;
 }
 
 
