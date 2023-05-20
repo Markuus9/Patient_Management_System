@@ -29,7 +29,7 @@ int main() {
 			// completar el codi
 
         } else if (inst == "mostrar_llista") {
-          h.mostar_llista();
+          h.llista_espera();
         }
 		// ...
 		// completar el codi

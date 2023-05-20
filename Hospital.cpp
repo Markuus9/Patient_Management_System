@@ -19,6 +19,6 @@ void Hospital::baixa_pacient(){
 }
 
 
-void Hospital::mostar_llista(){
+void Hospital::llista_espera(){
     cout << LlistaEspera;
 }

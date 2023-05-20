@@ -21,6 +21,6 @@ class Hospital {
 
         void baixa_pacient();
 
-        void mostar_llista();
+        void llista_espera();
 };
 #endif
