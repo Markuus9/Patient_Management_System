@@ -28,8 +28,12 @@ int main() {
             
 			// completar el codi
 
-        } else if (inst == "mostrar_llista") {
+        } else if (inst == "llista_espera") {
           h.llista_espera();
+        }
+        
+         else if (inst == "modificar_estat_pacient") {
+          h.modificar_estat_pacient();
         }
 		// ...
 		// completar el codi

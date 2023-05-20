@@ -22,5 +22,7 @@ class Hospital {
         void baixa_pacient();
 
         void llista_espera();
+
+        void modificar_estat_pacient();
 };
 #endif

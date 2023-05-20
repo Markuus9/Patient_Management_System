@@ -46,6 +46,7 @@ class Pacient {
 		/* Post: el valor de gravetat del pacient paràmetre 
 		   implícit	passa a ser el valor de 'gravetat' */
 		void actualitzaEstat(int gravetat);
+
 		
 		//-----------
 		// Consultors

@@ -22,3 +22,20 @@ void Hospital::baixa_pacient(){
 void Hospital::llista_espera(){
     cout << LlistaEspera;
 }
+
+void Hospital::modificar_estat_pacient() {
+    string name;
+    cin >> name;
+    Pacient p(name);
+    pair<bool,Pacient> par = Pacients.find(p);
+    int estat;
+    cin >> estat;
+    if (estat < 1 or estat > 3 or not par.first) {
+        cerr << " Error" << endl;
+        return;
+    }
+    LlistaEspera.remove(par.second);
+    par.second.actualitzaEstat(estat);
+    Pacients.setValue(p,par.second);
+    LlistaEspera.push(par.second);
+}

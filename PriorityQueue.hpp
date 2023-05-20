@@ -39,6 +39,8 @@ private:
     /* Post: no fa res si item és NULL, sinó allibera
        espai de la cadena de nodes apuntada per item */
 	void deleteItems(Item *item);
+
+
   
 public:
 
