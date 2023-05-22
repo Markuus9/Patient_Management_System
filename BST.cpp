@@ -109,6 +109,20 @@ void BST<T>::setValue(const T& d, const T& value) {
 
 template <typename T>
 
+void BST<T>::print(){
+	if(root!=NULL) {
+		cout << root->data;
+		if(right!=NULL){
+			*right.print();
+		}
+		if(left!=NULL){
+			*left.print();
+		}
+	}
+}
+
+template <typename T>
+
 typename BST<T>::Item* BST<T>::find(Item* pitem, const T& d) const
 {
 	if (pitem == NULL) return NULL;
