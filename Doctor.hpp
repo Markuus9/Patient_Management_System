@@ -4,63 +4,33 @@
 #define DOCTOR_HPP
 #include <iostream>
 #include "PriorityQueue.hpp"
-#include "Pacient.hpp"
-#include "Data.hpp"
+#include "Visita.hpp"
 
 using namespace std;
 
 class Doctor { 
     private:
-        string nom;
-        BST< pair<Pacient,Data> > visites;
+        string name;
+        Queue<Visita> Visitas;
     public:
 
-        //-------------
-		// Constructors
-		//-------------
+        Doctor();
 
-		/* Pre: cert */
-		/* Post: crea un doctor buit */		
-		Doctor();
-
-        //-------------
-		// Modificadors
-		//-------------
-
-        /* Pre: cert */
-		/* Post: afegeix una visita el doctor amb el nom del
-           pacient i la data de visita. */	
-        void crear_visita(pair<Pacient,Data> visita);
-
-        /* Pre:  */
-		/* Post: elimina una visita del doctor que coincideix amb el nom del
-           pacient i la data de visita. */	
-        void eliminar_visita(pair<Pacient,Data> visita);
+        Doctor(const Doctor &);
         
-        //-----------
-		// Consultors
-		//-----------
-
-        Data getData(pair<Pacient,Data> visita);
-
-        void mostrar_visites();
+        Doctor(string);
         
-		//-----------
-		// L/E
-		//-----------
+        ~Doctor();
 
-        /* Pre: esta preparat al canal estàndard d'entrada el valor
-		   string. */
-		/* Post: el doctor 'D' passa a tenir els valors llegits del canal
-		   estàndard d'entrada com a nom. */	
-        friend istream& operator>>(istream &is, Doctor &D);
+        void programar_visita(const Visita &);
 
-        /* Pre: cert */
-		/* Post: s'han escrit els atributs nom i visita, del
-           doctor 'D' al canal estàndard de sortida */
-		friend ostream& operator<<(ostream &os, const Doctor &D);
+        void alta_doctor();
 
-        bool operator==(const Doctor &D) const;
+        string getName();
 
+        void mostrar_doctor();
+        
+        friend istream& operator>>(istream &, Doctor &);
+        friend ostream& operator<<(ostream &, Doctor &);
 };
 #endif

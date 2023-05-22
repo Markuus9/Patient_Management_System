@@ -20,12 +20,13 @@ int main() {
     while ((cin >> inst) and (inst != "fi")) {
         if (inst == "alta_pacient") {
           h.alta_pacient();
-        } else if (inst == "baixa_pacient") {
+        } 
+        else if (inst == "baixa_pacient") {
           h.baixa_pacient();
 			// completar el codi
 
         } else if (inst == "alta_doctor") {
-            
+            h.alta_doctor();
 			// completar el codi
 
         } else if (inst == "llista_espera") {
@@ -34,6 +35,14 @@ int main() {
         
          else if (inst == "modificar_estat_pacient") {
           h.modificar_estat_pacient();
+        }
+
+        else if(inst == "mostrar_doctors") {
+          h.mostrar_doctors();
+        }
+
+        else if(inst == "programar_visita") {
+          h.programar_visita();
         }
 		// ...
 		// completar el codi

@@ -1,7 +1,7 @@
 #ifndef HOSPITAL_HPP
 #define HOSPITAL_HPP
 #include <iostream>
-#include <list>
+#include <vector>
 #include "BST.hpp"
 #include "Pacient.hpp"
 #include "Doctor.hpp"
@@ -14,26 +14,24 @@ using namespace std;
 class Hospital { 
     private:
         BST<Pacient> Pacients;
-        BST<Doctor> Doctors;
+        vector<Doctor> Doctors;
         Queue<Pacient> LlistaEspera;
+
+        pair<bool,int> find_doctor(string);
 
     public:
         void alta_pacient();
 
-        void baixa_pacient();
-
         void alta_doctor();
+
+        void baixa_pacient();
 
         void llista_espera();
 
-        void tractar_seguent_pacient();
-
         void modificar_estat_pacient();
-        
+
         void programar_visita();
 
-        void cancellar_visita();
-
-        void mostrar_programacio_visites();
+        void mostrar_doctors();
 };
 #endif

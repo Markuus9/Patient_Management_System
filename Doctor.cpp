@@ -1,53 +1,37 @@
 #include "Doctor.hpp"
 
-//-------------
-// Constructors
-//-------------
-
-Doctor::Doctor(){
+Doctor::Doctor() {
 
 }
 
-//-------------
-// Modificadors
-//-------------
-
-void Doctor::crear_visita(pair<Pacient,Data> visita){
-	visites.insert(visita);
+Doctor::Doctor(const Doctor &d) {
+    this->name = d.name;
+    this->Visitas = d.Visitas;
 }
-
-void Doctor::eliminar_visita(pair<Pacient,Data> visita){
-	visites.remove(visita);
+        
+Doctor::Doctor(string name) {
+    this->name = name;
 }
-
-//-----------
-// Consultors
-//-----------
-
-Data Doctor::getData(pair<Pacient,Data> visita){
-	return visites.find(visita).second;
-}
-
-void Doctor::mostrar_visites(){
+        
+Doctor::~Doctor() {
 
 }
 
-//-----------
-// L/E
-//-----------
+void Doctor::programar_visita(const Visita &v) {
+    Visitas.push(v);
+}
 
-istream& operator>>(istream &is, Doctor &D){
-	is >> D.nom;
+string Doctor::getName() {
+    return name;
+}
+
+istream& operator>>(istream &is, Doctor &d){
+	is >> d.name;
 	return is;
 }
 
-ostream& operator<<(ostream &os, const Doctor &D){
-	os << " " << D.nom << endl;
-	// pensando como hacer esto
-	// hay que imprimir un BST< pair<Paciente,Data> > entero.
-	return os;
+ostream& operator<<(ostream &os, Doctor &d) {
+    os << d.name << endl << d.Visitas;
+    return os;
 }
 
-bool Doctor::operator==(const Doctor &D) const {
-	return nom == D.nom;
-}

@@ -1,5 +1,12 @@
 #include "Hospital.hpp"
 
+pair<bool,int> Hospital::find_doctor(string dname){
+    unsigned int size = Doctors.size();
+    for (unsigned int i = 0; i < size; ++i) 
+        if (Doctors[i].getName() == dname) return make_pair(true,i);
+    return make_pair(false, -1);
+}
+
 void Hospital::alta_pacient(){
     Pacient P;
     cin >> P;
@@ -18,31 +25,13 @@ void Hospital::baixa_pacient(){
     if(par.first) {
         Pacients.remove(par.second);
         LlistaEspera.remove(par.second);
-    } else {
-        cerr << " Error" << endl;
     }
+    else cerr << " Error" << endl;
 }
 
-void Hospital::alta_doctor(){
-    Doctor D;
-    cin >> D;
-    if(not Doctors.find(D).first){
-        Doctors.insert(D);
-    } else {
-        cerr << " error" << endl;
-    }
-}
 
 void Hospital::llista_espera(){
     cout << LlistaEspera;
-}
-
-void Hospital::tractar_seguent_pacient(){
-    if(LlistaEspera.empty()==true){
-        cerr << " error" << endl;
-    } else {
-        LlistaEspera.pop();
-    }
 }
 
 void Hospital::modificar_estat_pacient() {
@@ -62,38 +51,40 @@ void Hospital::modificar_estat_pacient() {
     LlistaEspera.push(par.second);
 }
 
-void Hospital::programar_visita(){
-    string nom;
-    Doctor doctor;
-    Data data;
-    cin >> nom >> doctor >> data;
-    Pacient pacient(nom);
-    if (not Doctors.find(doctor).first or not Pacients.find(pacient).first) {
-        pair<Pacient,Data> visita(pacient,data);
-        Doctor copia = Doctors.find(doctor).second;
-        doctor.crear_visita(visita);
-        Doctors.setValue(copia, doctor);
-    } else {
-        cerr << " error" << endl;
+void Hospital::alta_doctor() {
+    Doctor d;
+    cin >> d;
+    if(find_doctor(d.getName()).first) {
+        cerr << "  Error" << endl;
+        return;
     }
+    Doctors.push_back(d);
 }
 
-void Hospital::cancellar_visita(){
-    string nom;
-    Doctor doctor;
-    Data data;
-    cin >> nom >> doctor >> data;
-    Pacient pacient(nom);
-    pair<Pacient,Data> visita(pacient,data);
-    if (Doctors.find(doctor).first and Pacients.find(pacient).first and data==Doctors.find(doctor).second.getData(visita)) {
-       Doctor copia = Doctors.find(doctor).second;
-       doctor.eliminar_visita(visita);
-       Doctors.setValue(copia, doctor);
-    } else {
-        cerr << " error" << endl;
-    }  
+void Hospital::programar_visita() {
+    string pname;
+    cin >> pname;
+    Pacient p(pname);
+    pair<bool,Pacient> ppar = Pacients.find(p);
+    if (not ppar.first) {
+        cerr << "  Error" << endl;
+        return;
+    }
+    string dname;
+    cin >> dname;
+    pair<bool, int> dpar = find_doctor(dname);
+    if (not dpar.first) {
+        cerr << "  Error" << endl;
+        return;        
+    }
+    Data d;
+    cin >> d;
+    Visita v(d,ppar.second);
+    Doctors[dpar.second].programar_visita(v);
 }
 
-void Hospital::mostrar_programacio_visites(){
-   Doctors.print();
+void Hospital::mostrar_doctors() {
+    for(unsigned int i = 0; i < Doctors.size(); ++i) {
+        cout << Doctors[i] << endl;
+    }
 }

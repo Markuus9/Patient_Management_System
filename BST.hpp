@@ -106,8 +106,6 @@ public:
 	// Consultors
 	//-----------
 	
-	void print();
-	
 	/* Pre: cert */
 	/* Post: el primer component del resultat indica
 	   si el paràmetre implícit conté un element amb
