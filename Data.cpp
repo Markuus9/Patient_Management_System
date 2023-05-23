@@ -29,11 +29,11 @@ int Data::getAny() const {
     return any;
 }
 
-bool Data::operator==(const Data &data) {
+bool Data::operator==(const Data &data) const{
 	return dia == data.dia  and  mes == data.mes  and  any == data.any;
 }
 
-bool Data::operator<(const Data &data) {
+bool Data::operator<(const Data &data) const{
 	return dia < data.dia  or (dia == data.dia and mes < data.mes) or (dia == data.dia and mes == data.mes and any < data.any);
 }
 

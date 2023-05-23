@@ -1,5 +1,13 @@
 #include "Hospital.hpp"
 
+void Hospital::remove(const Pacient &p){
+    unsigned int i = 0, size = Doctors.size();
+    bool found = false;
+    while (i < size and not found) {
+        Doctors[i].remove(p);
+    }
+}
+
 pair<bool,int> Hospital::find_doctor(string dname){
     unsigned int size = Doctors.size();
     for (unsigned int i = 0; i < size; ++i) 
@@ -10,10 +18,11 @@ pair<bool,int> Hospital::find_doctor(string dname){
 void Hospital::alta_pacient(){
     Pacient P;
     cin >> P;
-    if(not Pacients.find(P).first) {
+    int gravetat = P.getGravetat();
+    if(not Pacients.find(P).first and gravetat >= 1 and gravetat <= 3) {
         Pacients.insert(P);
         LlistaEspera.push(P);
-    } else cerr << "  Error" << endl;
+    } else cout << "  Error" << endl;
 }
 
 
@@ -25,6 +34,7 @@ void Hospital::baixa_pacient(){
     if(par.first) {
         Pacients.remove(par.second);
         LlistaEspera.remove(par.second);
+        remove(par.second);
     }
     else cerr << " Error" << endl;
 }
@@ -87,4 +97,15 @@ void Hospital::mostrar_doctors() {
     for(unsigned int i = 0; i < Doctors.size(); ++i) {
         cout << Doctors[i] << endl;
     }
+}
+
+void Hospital::tractar_seguent_pacient(){
+    if (not LlistaEspera.empty()) LlistaEspera.pop();        
+    else cerr << " error" << endl;
+}
+
+void Hospital::eliminar_visita() {
+    Visita v;
+    cin >> v;
+    
 }

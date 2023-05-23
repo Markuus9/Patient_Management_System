@@ -49,13 +49,8 @@ int Pacient::getGravetat() const{
 }
 
 bool Pacient::compare(const Pacient &p) const{
-	bool resultat;
-	if(gravetat<p.gravetat){
-		resultat = true;
-	} else {
-		resultat = false;
-	}
-	return resultat;
+	if(gravetat<p.gravetat)return true;
+	return false;
 }
 
 // PODEU AFEGIR ELS MÈTODES QUE NECESSITEU

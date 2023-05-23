@@ -25,6 +25,11 @@ string Doctor::getName() {
     return name;
 }
 
+void Doctor::remove(const Pacient&){
+    
+}
+
+
 istream& operator>>(istream &is, Doctor &d){
 	is >> d.name;
 	return is;

@@ -19,6 +19,8 @@ class Hospital {
 
         pair<bool,int> find_doctor(string);
 
+        void remove(const Pacient&);
+
     public:
         void alta_pacient();
 
@@ -32,6 +34,10 @@ class Hospital {
 
         void programar_visita();
 
+        void tractar_seguent_pacient();
+
         void mostrar_doctors();
+
+        void eliminar_visita();
 };
 #endif

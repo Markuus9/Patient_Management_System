@@ -88,6 +88,8 @@ public:
 	   paràmetre implícit */
 	void remove(T value);
 
+	void removeEqual(T value);
+
 	//-----------
 	// Consultors
 	//-----------	

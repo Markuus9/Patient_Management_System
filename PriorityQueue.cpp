@@ -126,6 +126,10 @@ void Queue<T>::remove(T value) {
 	  }
 }
 
+template <typename T>
+void Queue<T>::removeEqual(T value) {
+	
+}
 
 //-----------
 // Consultors

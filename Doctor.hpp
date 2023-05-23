@@ -29,6 +29,8 @@ class Doctor {
         string getName();
 
         void mostrar_doctor();
+
+        void remove(const Pacient&);
         
         friend istream& operator>>(istream &, Doctor &);
         friend ostream& operator<<(ostream &, Doctor &);

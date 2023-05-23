@@ -47,13 +47,13 @@ class Data {
 		/* Post: retorna un booleà que indica si la data paràmetre
 		   implícit i la data 'd' rebuda són identiques (true)
 		   o no ho són (false) */
-		bool operator==(const Data &d);
+		bool operator==(const Data &d) const;
 
 		/* Pre: cert */
 		/* Post: retorna un booleà que indica si la data paràmetre
 		   implícit és anterior a la data 'd' rebuda (true) o
 		   no ho és (false) */
-		bool operator<(const Data &d);
+		bool operator<(const Data &d) const;
 		
 				
 		//-----------

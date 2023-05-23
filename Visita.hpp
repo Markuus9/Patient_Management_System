@@ -39,7 +39,12 @@ class Visita {
 		Pacient getPacient() const;
 
 		bool compare(const Visita &) const;
+
+		bool operator==(const Visita& v) const;
 		
 		friend ostream& operator<<(ostream &os, Visita &);
+		friend istream& operator>>(istream &is, Visita &);
+
+
 };
 #endif
