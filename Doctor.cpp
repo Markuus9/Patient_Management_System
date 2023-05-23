@@ -31,6 +31,14 @@ void Doctor::remove(const Pacient& P){
     Visitas.removeEqual(aux);
 }
 
+void Doctor::remove_visit(const Visita &v)
+{
+    if (not Visitas.removebool(v)) {
+        cout << "  Error" << endl;
+   }
+}
+
+
 
 istream& operator>>(istream &is, Doctor &d){
 	is >> d.name;

@@ -37,12 +37,20 @@ int main() {
           h.modificar_estat_pacient();
         }
 
-        else if(inst == "mostrar_doctors") {
+        else if(inst == "mostrar_programacio_visites") {
           h.mostrar_doctors();
         }
 
         else if(inst == "programar_visita") {
           h.programar_visita();
+        }
+
+        else if (inst == "cancellar_visita") {
+            h.cancelar_visita();
+        }
+
+        else if (inst == "tractar_seguent_pacient") {
+            h.tractar_seguent_pacient();
         }
 		// ...
 		// completar el codi

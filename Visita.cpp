@@ -40,5 +40,5 @@ istream& operator>>(istream &is, Visita &v) {
 }
 
 bool Visita::operator==(const Visita& v) const{
-    return v.data == data and v.pacient == this->pacient;
+    return v.data == this->data and v.pacient.getNom() == this->pacient.getNom();
 }

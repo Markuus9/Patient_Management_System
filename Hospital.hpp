@@ -38,6 +38,6 @@ class Hospital {
 
         void mostrar_doctors();
 
-        void eliminar_visita();
+        void cancelar_visita();
 };
 #endif

@@ -24,13 +24,11 @@ class Doctor {
 
         void programar_visita(const Visita &);
 
-        void alta_doctor();
-
         string getName();
 
-        void mostrar_doctor();
-
         void remove(const Pacient&);
+
+        void remove_visit(const Visita &);
         
         friend istream& operator>>(istream &, Doctor &);
         

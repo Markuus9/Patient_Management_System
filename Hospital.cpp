@@ -38,7 +38,7 @@ void Hospital::baixa_pacient(){
             Doctors[i].remove(par.second);
         }
     }
-    else cerr << " Error" << endl;
+    else cout << " Error" << endl;
 }
 
 
@@ -54,7 +54,7 @@ void Hospital::modificar_estat_pacient() {
     int estat;
     cin >> estat;
     if (estat < 1 or estat > 3 or not par.first) {
-        cerr << " Error" << endl;
+        cout << " Error" << endl;
         return;
     }
     LlistaEspera.remove(par.second);
@@ -67,7 +67,7 @@ void Hospital::alta_doctor() {
     Doctor d;
     cin >> d;
     if(find_doctor(d.getName()).first) {
-        cerr << "  Error" << endl;
+        cout << "  Error" << endl;
         return;
     }
     Doctors.push_back(d);
@@ -79,14 +79,14 @@ void Hospital::programar_visita() {
     Pacient p(pname);
     pair<bool,Pacient> ppar = Pacients.find(p);
     if (not ppar.first) {
-        cerr << "  Error" << endl;
+        cout << "  Error" << endl;
         return;
     }
     string dname;
     cin >> dname;
     pair<bool, int> dpar = find_doctor(dname);
     if (not dpar.first) {
-        cerr << "  Error" << endl;
+        cout << "  Error" << endl;
         return;        
     }
     Data d;
@@ -101,13 +101,24 @@ void Hospital::mostrar_doctors() {
     }
 }
 
-void Hospital::tractar_seguent_pacient(){
-    if (not LlistaEspera.empty()) LlistaEspera.pop();        
-    else cerr << " error" << endl;
+void Hospital::cancelar_visita()
+{
+    string pname,dname;
+    cin >> pname >> dname;
+    Pacient p(pname);
+    Data d;
+    cin >> d;
+    pair<bool, int> find = find_doctor(dname);
+    if (not find.first) {
+        cout << "  Error" << endl;
+        return;
+    }
+    Visita v(d, p);
+    Doctors[find.second].remove_visit(v);
+
 }
 
-void Hospital::eliminar_visita() {
-    Visita v;
-    cin >> v;
-    
+void Hospital::tractar_seguent_pacient(){
+    if (not LlistaEspera.empty()) LlistaEspera.pop();        
+    else cout << " error" << endl;
 }

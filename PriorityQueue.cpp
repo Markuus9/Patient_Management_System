@@ -1,3 +1,4 @@
+#include "PriorityQueue.hpp"
 //--------------------------
 // Mètodes privats auxiliars
 //--------------------------
@@ -104,6 +105,27 @@ void Queue<T>::push(T value) {
 	pitem->next = current->next;
 	current->next = pitem;
 	if (last == current) last = pitem;
+}
+
+template <typename T>
+bool Queue<T>::removebool(T value) {
+	Item* pitem = first;
+	Item* pant = NULL;
+	bool found = false;
+	while (not found and pitem != NULL) {
+		if (pitem->value == value) found = true;
+		else {
+			pant = pitem;
+			pitem = pitem->next;
+		}
+	}
+	if (found) {
+		if (first == pitem) first = pitem->next;
+		else pant->next = pitem->next;
+		delete pitem;
+		_size--;
+	}
+	return found;
 }
 
 template <typename T>
