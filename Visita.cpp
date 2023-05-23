@@ -26,10 +26,7 @@ Pacient Visita::getPacient() const {
 }
 
 bool Visita::compare(const Visita &visita) const {
-   if(data.getAny() < visita.data.getAny()) return true;
-   if(data.getMes() < visita.data.getMes()) return true;
-   if(data.getDia() < visita.data.getDia()) return true;
-   return false;
+   return pacient==visita.getPacient();
 }
 
 ostream& operator<<(ostream &os, Visita &v) {
