@@ -25,8 +25,10 @@ string Doctor::getName() {
     return name;
 }
 
-void Doctor::remove(const Pacient&){
-    
+void Doctor::remove(const Pacient& P){
+    Data D;
+    Visita aux(D,P);
+    Visitas.removeEqual(aux);
 }
 
 

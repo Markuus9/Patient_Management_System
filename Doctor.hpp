@@ -33,6 +33,7 @@ class Doctor {
         void remove(const Pacient&);
         
         friend istream& operator>>(istream &, Doctor &);
+        
         friend ostream& operator<<(ostream &, Doctor &);
 };
 #endif

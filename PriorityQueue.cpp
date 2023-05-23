@@ -128,7 +128,21 @@ void Queue<T>::remove(T value) {
 
 template <typename T>
 void Queue<T>::removeEqual(T value) {
-	
+	Item *pitem = first;
+	Item* pant = NULL;
+	while(pitem!=last) {
+		Item *actual = pitem;
+		if(pitem->value.compare(value)){
+		  if (first == pitem) first = pitem->next;
+		  else pant->next = pitem->next;
+		  delete actual;
+		  _size--;
+		} else {
+			pant = pitem;
+			pitem = pitem->next;
+		}
+		pitem = pitem->next;
+	}
 }
 
 //-----------

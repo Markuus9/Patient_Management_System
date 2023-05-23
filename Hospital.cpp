@@ -34,7 +34,9 @@ void Hospital::baixa_pacient(){
     if(par.first) {
         Pacients.remove(par.second);
         LlistaEspera.remove(par.second);
-        remove(par.second);
+        for(unsigned int i = 0; i<Doctors.size(); ++i){
+            Doctors[i].remove(par.second);
+        }
     }
     else cerr << " Error" << endl;
 }
