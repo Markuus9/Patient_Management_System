@@ -66,7 +66,7 @@ istream& operator>>(istream &is, Pacient &p){
 }
 
 ostream& operator<<(ostream &os, const Pacient &p){
-	os << p.nom << " " << p.edat << " " << p.motiu << " " << p.gravetat << endl;
+	os << p.nom << "  " << p.edat << " " << p.motiu << " " << p.gravetat << endl;
 	return os;
 }
 

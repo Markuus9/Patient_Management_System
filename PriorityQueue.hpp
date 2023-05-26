@@ -82,15 +82,13 @@ public:
     /* Post: afegeix el valor rebut per paràmetre en el
 	   paràmetre implícit, tenint en compte la seva prioritat */
 	void push(T value);
-
-	bool removebool(T value);
 	
     /* Pre: el paràmetre implícit no és buit */
     /* Post: elimina el valor rebut per paràmetre del
 	   paràmetre implícit */
 	void remove(T value);
 
-	void removeEqual(T value);
+	bool removeEqual(T value);
 
 	//-----------
 	// Consultors

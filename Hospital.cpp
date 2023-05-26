@@ -19,10 +19,11 @@ void Hospital::alta_pacient(){
     Pacient P;
     cin >> P;
     int gravetat = P.getGravetat();
+    cout << "alta_pacient " << P;
     if(not Pacients.find(P).first and gravetat >= 1 and gravetat <= 3) {
         Pacients.insert(P);
         LlistaEspera.push(P);
-    } else cout << "  Error" << endl;
+    } else cout << "  error" << endl;
 }
 
 
@@ -38,7 +39,7 @@ void Hospital::baixa_pacient(){
             Doctors[i].remove(par.second);
         }
     }
-    else cout << " Error" << endl;
+    else cout << " error" << endl;
 }
 
 
@@ -54,7 +55,7 @@ void Hospital::modificar_estat_pacient() {
     int estat;
     cin >> estat;
     if (estat < 1 or estat > 3 or not par.first) {
-        cout << " Error" << endl;
+        cout << " error" << endl;
         return;
     }
     LlistaEspera.remove(par.second);
@@ -66,8 +67,9 @@ void Hospital::modificar_estat_pacient() {
 void Hospital::alta_doctor() {
     Doctor d;
     cin >> d;
+    cout << "alta_doctor " << d.getName() << endl;
     if(find_doctor(d.getName()).first) {
-        cout << "  Error" << endl;
+        cout << "  error" << endl;
         return;
     }
     Doctors.push_back(d);
@@ -79,14 +81,14 @@ void Hospital::programar_visita() {
     Pacient p(pname);
     pair<bool,Pacient> ppar = Pacients.find(p);
     if (not ppar.first) {
-        cout << "  Error" << endl;
+        cout << "  error" << endl;
         return;
     }
     string dname;
     cin >> dname;
     pair<bool, int> dpar = find_doctor(dname);
     if (not dpar.first) {
-        cout << "  Error" << endl;
+        cout << "  error" << endl;
         return;        
     }
     Data d;
@@ -95,7 +97,7 @@ void Hospital::programar_visita() {
     Doctors[dpar.second].programar_visita(v);
 }
 
-void Hospital::mostrar_doctors() {
+void Hospital::mostrar_programacio_visites() {
     for(unsigned int i = 0; i < Doctors.size(); ++i) {
         cout << Doctors[i] << endl;
     }
@@ -110,7 +112,7 @@ void Hospital::cancelar_visita()
     cin >> d;
     pair<bool, int> find = find_doctor(dname);
     if (not find.first) {
-        cout << "  Error" << endl;
+        cout << "  error" << endl;
         return;
     }
     Visita v(d, p);

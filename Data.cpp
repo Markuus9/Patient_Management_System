@@ -47,6 +47,6 @@ istream& operator>>(istream &is, Data &data) {
 }
 		
 ostream& operator<<(ostream &os, const Data &data) {
-	os << data.dia << " " << data.mes << " " << data.any;
+	os << data.dia << "/" << data.mes << "/" << data.any;
   return os;
 }

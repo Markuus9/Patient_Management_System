@@ -108,27 +108,6 @@ void Queue<T>::push(T value) {
 }
 
 template <typename T>
-bool Queue<T>::removebool(T value) {
-	Item* pitem = first;
-	Item* pant = NULL;
-	bool found = false;
-	while (not found and pitem != NULL) {
-		if (pitem->value == value) found = true;
-		else {
-			pant = pitem;
-			pitem = pitem->next;
-		}
-	}
-	if (found) {
-		if (first == pitem) first = pitem->next;
-		else pant->next = pitem->next;
-		delete pitem;
-		_size--;
-	}
-	return found;
-}
-
-template <typename T>
 void Queue<T>::remove(T value) {
 	Item* pitem = first;
 	Item* pant = NULL;
@@ -147,48 +126,26 @@ void Queue<T>::remove(T value) {
 		  _size--;
 	  }
 }
-/*
+
 template <typename T>
-void Queue<T>::removeEqual(T value) {
-	if (first == NULL) return;
-	_size = 1;
+bool Queue<T>::removeEqual(T value) {
 	Item* pitem = first;
-	Item* pfirst;
-	Item* plast;
-	pfirst = plast = new Item();
-	if (not (pitem->value == value)) plast->value = pitem->value;
-	pitem = pitem->next;
-	while(pitem != NULL) {
-		if (not pitem->value.compare1(value)) {
-			plast->next = new Item();
-			plast = pitem->next;
-			plast->value = pitem->value;
-			_size++;
-		}
-		pitem = pitem->next;
-	}
-	delete pitem;
-	first = pfirst;
-}
-*/
-
-
-template <typename T>
-void Queue<T>::removeEqual(T value) {
-	Item *pitem = first;
-	Item *pant = NULL;
-	while(pitem!=last) {
-		Item *actual = pitem;
-		if(pitem->value.compare1(value)){
+	Item* pant = NULL;
+	bool found = false;
+	while (not found and pitem != NULL) {
+		if (pitem->value.compare1(value)) found = true;
+		  else {
+			  pant = pitem;
+			  pitem = pitem->next;
+		  }
+	  }
+	  if (found) {
 		  if (first == pitem) first = pitem->next;
 		  else pant->next = pitem->next;
-		  delete actual;
+		  delete pitem;
 		  _size--;
-		} else {
-			pant = pitem;
-		}
-		pitem = pitem->next;
-	}
+	  }
+	return found;
 }
 
 //-----------
@@ -221,9 +178,8 @@ bool Queue<T>::empty() const {
 	
 template<typename U>
 ostream &operator<<(ostream &os, Queue<U> &q) {
-  os << q._size;
   for (typename Queue<U>::Item *item = q.first; item != NULL; item = item->next)
-    os << " " << item->value;
+    os << "  " << item->value;
   return os;
 }
 

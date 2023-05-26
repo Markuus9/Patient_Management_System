@@ -30,6 +30,7 @@ int main() {
 			// completar el codi
 
         } else if (inst == "llista_espera") {
+          cout << inst << endl;
           h.llista_espera();
         }
         
@@ -38,7 +39,8 @@ int main() {
         }
 
         else if(inst == "mostrar_programacio_visites") {
-          h.mostrar_doctors();
+          cout << inst << endl;
+          h.mostrar_programacio_visites();
         }
 
         else if(inst == "programar_visita") {
@@ -50,7 +52,10 @@ int main() {
         }
 
         else if (inst == "tractar_seguent_pacient") {
+          cout << inst << endl;
             h.tractar_seguent_pacient();
+        } else {
+          cout << inst << endl << " error" << endl;
         }
 		// ...
 		// completar el codi

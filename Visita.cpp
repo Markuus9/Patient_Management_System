@@ -38,7 +38,7 @@ bool Visita::compare(const Visita &visita) const {
 }
 
 ostream& operator<<(ostream &os, Visita &v) {
-    os << v.pacient << " " << v.data << endl;
+    os << v.data << " " << v.pacient.getNom() << endl;
     return os;
 }
 

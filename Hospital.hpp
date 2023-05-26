@@ -36,7 +36,7 @@ class Hospital {
 
         void tractar_seguent_pacient();
 
-        void mostrar_doctors();
+        void mostrar_programacio_visites();
 
         void cancelar_visita();
 };

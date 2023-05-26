@@ -28,14 +28,19 @@ string Doctor::getName() {
 void Doctor::remove(const Pacient& P){
     Data D;
     Visita aux(D,P);
-    Visitas.removeEqual(aux);
+    bool found = true;
+    while (found){
+        found = Visitas.removeEqual(aux);
+    }
 }
 
 void Doctor::remove_visit(const Visita &v)
 {
-    if (not Visitas.removebool(v)) {
+    int size = Visitas.size();
+    Visitas.remove(v);
+    if (Visitas.size() != size)  {
         cout << "  Error" << endl;
-   }
+    }
 }
 
 
@@ -46,7 +51,7 @@ istream& operator>>(istream &is, Doctor &d){
 }
 
 ostream& operator<<(ostream &os, Doctor &d) {
-    os << d.name << endl << d.Visitas;
+    os << " " << d.name << endl << d.Visitas;
     return os;
 }
 
