@@ -1,4 +1,3 @@
-#include "PriorityQueue.hpp"
 //--------------------------
 // Mètodes privats auxiliars
 //--------------------------
@@ -108,88 +107,12 @@ void Queue<T>::push(T value) {
 }
 
 template <typename T>
-bool Queue<T>::removebool(T value) {
-	Item* pitem = first;
-	Item* pant = NULL;
-	bool found = false;
-	while (not found and pitem != NULL) {
-		if (pitem->value == value) found = true;
-		else {
-			pant = pitem;
-			pitem = pitem->next;
-		}
-	}
-	if (found) {
-		if (first == pitem) first = pitem->next;
-		else pant->next = pitem->next;
-		delete pitem;
-		_size--;
-	}
-	return found;
-}
-
-template <typename T>
 void Queue<T>::remove(T value) {
-	Item* pitem = first;
-	Item* pant = NULL;
-	bool found = false;
-	while (not found and pitem != NULL) {
-		if (pitem->value == value) found = true;
-		  else {
-			  pant = pitem;
-			  pitem = pitem->next;
-		  }
-	  }
-	  if (found) {
-		  if (first == pitem) first = pitem->next;
-		  else pant->next = pitem->next;
-		  delete pitem;
-		  _size--;
-	  }
-}
-/*
-template <typename T>
-void Queue<T>::removeEqual(T value) {
-	if (first == NULL) return;
-	_size = 1;
-	Item* pitem = first;
-	Item* pfirst;
-	Item* plast;
-	pfirst = plast = new Item();
-	if (not (pitem->value == value)) plast->value = pitem->value;
-	pitem = pitem->next;
-	while(pitem != NULL) {
-		if (not pitem->value.compare1(value)) {
-			plast->next = new Item();
-			plast = pitem->next;
-			plast->value = pitem->value;
-			_size++;
-		}
-		pitem = pitem->next;
-	}
-	delete pitem;
-	first = pfirst;
-}
-*/
+	
+	// PROGRAM THIS METHOD
 
-
-template <typename T>
-void Queue<T>::removeEqual(T value) {
-	Item *pitem = first;
-	Item *pant = NULL;
-	while(pitem!=last) {
-		Item *actual = pitem;
-		if(pitem->value.compare1(value)){
-		  if (first == pitem) first = pitem->next;
-		  else pant->next = pitem->next;
-		  delete actual;
-		  _size--;
-		} else {
-			pant = pitem;
-		}
-		pitem = pitem->next;
-	}
 }
+
 
 //-----------
 // Consultors

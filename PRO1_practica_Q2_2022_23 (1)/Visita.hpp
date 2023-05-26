@@ -15,13 +15,12 @@ class Visita {
 	private:
 		Data data;
 		Pacient pacient;
+	
 	public:
 		//-------------
 		// Constructors
 		//-------------
 		
-		Visita();
-
 		/* Pre: cert */
 		/* Post: crea una visita de data 'd' i pacient 'p' */
 		Visita(const Data &d, const Pacient &p);
@@ -37,16 +36,6 @@ class Visita {
 		/* Pre: cert */
 		/* Post: retorna el pacient de la visita paràmetre implícit */
 		Pacient getPacient() const;
-
-		bool compare1(const Visita &v) const;
-
-		bool compare(const Visita &v) const;
-
-		bool operator==(const Visita& v) const;
 		
-		friend ostream& operator<<(ostream &os, Visita &);
-		friend istream& operator>>(istream &is, Visita &);
-
-
 };
 #endif
