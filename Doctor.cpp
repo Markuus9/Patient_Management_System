@@ -39,10 +39,9 @@ void Doctor::remove_visit(const Visita &v)
     int size = Visitas.size();
     Visitas.remove(v);
     if (Visitas.size() != size)  {
-        cout << "  Error" << endl;
+        cout << "  error" << endl;
     }
 }
-
 
 
 istream& operator>>(istream &is, Doctor &d){
@@ -51,7 +50,7 @@ istream& operator>>(istream &is, Doctor &d){
 }
 
 ostream& operator<<(ostream &os, Doctor &d) {
-    os << " " << d.name << endl << d.Visitas;
+    os << "  " << d.name << endl << d.Visitas;
     return os;
 }
 

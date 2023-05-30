@@ -22,6 +22,7 @@ int main() {
           h.alta_pacient();
         } 
         else if (inst == "baixa_pacient") {
+			cout << inst << " ";
           h.baixa_pacient();
 			// completar el codi
 
@@ -35,19 +36,22 @@ int main() {
         }
         
          else if (inst == "modificar_estat_pacient") {
+			 cout << inst << " ";
           h.modificar_estat_pacient();
         }
 
         else if(inst == "mostrar_programacio_visites") {
-          cout << inst << endl;
+          cout << inst << " " << endl; 
           h.mostrar_programacio_visites();
         }
 
         else if(inst == "programar_visita") {
+			cout << inst << " ";
           h.programar_visita();
         }
 
         else if (inst == "cancellar_visita") {
+			cout << inst << " ";
             h.cancelar_visita();
         }
 
@@ -55,7 +59,7 @@ int main() {
           cout << inst << endl;
             h.tractar_seguent_pacient();
         } else {
-          cout << inst << endl << " error" << endl;
+          cout << inst << endl << "  error" << endl; 
         }
 		// ...
 		// completar el codi

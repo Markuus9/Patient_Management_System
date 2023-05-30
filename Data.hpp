@@ -60,6 +60,8 @@ class Data {
 		// L/E
 		//-----------
 
+		void print() const;
+
 		/* Pre: estan preparats al canal estàndard d'entrada tres enters */
 		/* Post: la data 'd' passa a tenir els enters llegits del canal
 		   estàndard d'entrada com a dia, mes i any, respectivament */		
