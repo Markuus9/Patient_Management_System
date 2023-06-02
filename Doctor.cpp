@@ -38,7 +38,7 @@ void Doctor::remove_visit(const Visita &v)
 {
     int size = Visitas.size();
     Visitas.remove(v);
-    if (Visitas.size() != size)  {
+    if (Visitas.size() == size)  {
         cout << "  error" << endl;
     }
 }
