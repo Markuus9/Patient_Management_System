@@ -104,7 +104,7 @@ void Hospital::programar_visita() {
 
 void Hospital::mostrar_programacio_visites() {
     for(unsigned int i = 0; i < Doctors.size(); ++i) {
-        cout << Doctors[i] << endl;
+        cout << Doctors[i];
     }
 }
 
