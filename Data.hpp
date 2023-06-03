@@ -60,6 +60,9 @@ class Data {
 		// L/E
 		//-----------
 
+		/* Pre: cert */
+		/* Post: s'han escrit els atributs, dia, mes i any de la data
+		implícita al canal estàndard de sortida. */
 		void print() const;
 
 		/* Pre: estan preparats al canal estàndard d'entrada tres enters */

@@ -96,10 +96,22 @@ class Pacient {
            pacient 'p' al canal estàndard de sortida */
 		friend ostream& operator<<(ostream &os, const Pacient &p);
 
+		/* Pre: cert */
+		/* Post: retorna un booleà que indica si el nom del pacient 
+		implícit és menor (Alfabèticament) que el nom del pacient 'p' 
+		(True), si és més gran o igual retorna (False). */
 		bool operator<(const Pacient &p) const;
 
+		/* Pre: cert */
+		/* Post: retorna un booleà que indica si el nom del pacient 
+		implícit és major (Alfabèticament) que el nom del pacient 'p' 
+		(True), si és més petit o igual retorna (False). */
 		bool operator>(const Pacient &p) const;
 
+		/* Pre: cert */
+		/* Post: retorna un booleà que indica si el nom del pacient
+		   implícit i el nom del pacient 'p' rebuda són identiques (true)
+		   o no ho són (false) */
 		bool operator==(const Pacient &p) const;
 
 };

@@ -88,6 +88,11 @@ public:
 	   paràmetre implícit */
 	void remove(T value);
 
+	/* Pre: el paràmetre implícit no és buit */
+    /* Post: elimina el valor rebut per paràmetre del
+	   paràmetre implícit només si troba un valor igual
+	   llavors retorna (true), sinó troba cap valor igual
+	   no elimina res i retorna (false)*/
 	bool removeEqual(T value);
 
 	//-----------
