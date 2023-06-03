@@ -40,7 +40,7 @@ void Hospital::baixa_pacient(){
             Doctors[i].remove(par.second);
         }
     }
-    else cout << " error" << endl;
+    else cout << "  error" << endl;
 }
 
 
@@ -130,5 +130,5 @@ void Hospital::cancelar_visita()
 
 void Hospital::tractar_seguent_pacient(){
     if (not LlistaEspera.empty()) LlistaEspera.pop();        
-    else cout << " error" << endl;
+    else cout << "  error" << endl;
 }

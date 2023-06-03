@@ -54,6 +54,16 @@ class Data {
 		   implícit és anterior a la data 'd' rebuda (true) o
 		   no ho és (false) */
 		bool operator<(const Data &d) const;
+		
+		//-----------
+		// L/E
+		//-----------
+
+		/* Pre: cert */
+		/* Post: s'han escrit els atributs, dia, mes i any de la data
+		implícita al canal estàndard de sortida. */
+		void print() const;
+
 
 		/* Pre: estan preparats al canal estàndard d'entrada tres enters */
 		/* Post: la data 'd' passa a tenir els enters llegits del canal
