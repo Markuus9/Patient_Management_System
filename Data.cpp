@@ -40,10 +40,6 @@ bool Data::operator<(const Data &data) const{
 //-----------
 // L/E
 //-----------
-		
-void Data::print() const {
-	cout << dia << " " << mes << " " << any << endl;
-}
 
 istream& operator>>(istream &is, Data &data) {
 	is >> data.dia >> data.mes >> data.any;
